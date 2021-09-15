@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>All Departments</title>
+{% endblock %}
+
+{% block content %}
+<br>
+<h2 style="color:magenta;font-style: italic;">Our Departments.....</h2>
+<br>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Department Name</th>
+        <th>Year Of Establishment</th>
+        <th>Course Duration</th>
+        <th>Update Button</th>
+        <th>Delete Button</th>
+    </tr>
+    {% for d in deps %}
+    <tr>
+        <td>{{d.id}}</td>
+        <td>{{d.dep_name}}</td>
+        <td>{{d.dep_year_of_establishment}}</td>
+        <td>{{d.dep_course_duration}}</td>
+        <td><a href="{% url 'update-dep' d.id %}"><button class="btn btn-info">Update</button></a></td>
+         <td><a href="{% url 'delete-dep' d.id %}"><button class="btn btn-danger">Delete</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+    <br>
+    <br>
+    <a href="{% url 'add-dep' %}"><button class="btn btn-success">Click here to Add New Department</button></a>
+{% endblock %}

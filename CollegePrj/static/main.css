@@ -1,0 +1,35 @@
+.myNav
+{
+background-color:LightGray;
+list-style-type:None;
+overflow:hidden;
+margin:0;
+padding:0;
+}
+
+.m1
+{
+float:left;
+padding:15px 8px 15px 8px;
+}
+
+li a
+{
+text-decoration:None;
+}
+
+li a:hover
+{
+color:red;
+}
+
+a
+{
+text-decoration:None;
+}
+
+.m2
+{
+float:right;
+padding:15px 8px 15px 8px;
+}

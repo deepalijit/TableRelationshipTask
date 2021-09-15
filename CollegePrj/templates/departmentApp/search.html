@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Search</title>
+{% endblock %}
+
+{% block content %}
+<h3 style="color:magenta;text-align:center;">Search Results..</h3>
+<h2>Student</h2><br>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Departments</th>
+        <th>Roll No</th>
+        <th>Name</th>
+    </tr>
+    {% for s in stu %}
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.department}}</td>
+        <td>{{s.roll_no}}</td>
+        <td>{{s.s_name}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br><br><br>
+<h2>Teacher</h2><br>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Departments</th>
+        <th>Teacher Name</th>
+        <th>Salary</th>
+        <th>Date of Joining</th>
+    </tr>
+    {% for t in teacher %}
+    <tr>
+        <td>{{t.id}}</td>
+        <td>
+            {% for i in t.department.all %}
+            {{i}}
+            {% endfor %}
+        </td>
+        <td>{{t.t_name}}</td>
+        <td>{{t.t_salary}}</td>
+        <td>{{t.t_date_of_joining}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

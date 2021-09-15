@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Teachers</title>
+{% endblock %}
+
+{% block content %}
+<br>
+<h2 style="color:magenta;font-style: italic;">Teachers.....</h2>
+<br>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Departments</th>
+        <th>Teacher's Name</th>
+        <th>Teacher's Salary</th>
+        <th>Joining Date</th>
+        <th>Update Button</th>
+        <th>Delete Button</th>
+    </tr>
+    {% for t in teachers %}
+    <tr>
+        <td>{{t.id}}</td>
+        <td>{% for i in t.department.all %}
+            {{i}}
+            {% endfor %}
+        </td>
+        <td>{{t.t_name}}</td>
+        <td>{{t.t_salary}}</td>
+        <td>{{t.t_date_of_joining}}</td>
+        <td><a href="{% url 'update-teacher' t.id %}"><button class="btn btn-info">Update</button></a></td>
+         <td><a href="{% url 'delete-teacher' t.id %}"><button class="btn btn-danger">Delete</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+    <br>
+    <br>
+    <a href="{% url 'add-teacher' %}"><button class="btn btn-success">Click here to Add New Teacher</button></a>
+{% endblock %}
